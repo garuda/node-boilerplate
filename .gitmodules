@@ -10,4 +10,4 @@
 
 [submodule "lib/html5-boilerplate"]
 	path = lib/html5-boilerplate
-	url = http://github.com/robrighter/html5-boilerplate.git
+	url = http://github.com/eroh92/html5-boilerplate.git
