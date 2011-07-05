@@ -63,11 +63,11 @@ io.on('connection', function(client){
 server.get('/', function(req, res){
   res.render('index.ejs', {
     locals : { 
-        header: '#Header#'
-        footer: '#Footer#'
-        title : 'Page Title'
-        description: 'Page Description'
-        author: 'Your Name'
+        header: '#Header#',
+        footer: '#Footer#',
+        title : 'Page Title',
+        description: 'Page Description',
+        author: 'Your Name',
         analyticssiteid: 'XXXXXXX' 
     }
   });
