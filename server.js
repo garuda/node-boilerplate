@@ -42,15 +42,11 @@ server.listen(port);
 
 //Setup Socket.IO
 var io = io.listen(server);
-io.on('connection', function(client){
-    console.log('Client Connected');
-    client.on('message', function(message){
-    client.broadcast(message);
-        client.send(message);
-    });
-    client.on('disconnect', function(){
-        console.log('Client Disconnected.');
-    });
+io.sockets.on('connection', function (socket) {
+  socket.on('chat', function (msg) {
+    console.info('got one!\n\n');
+    io.sockets.emit('chat', msg);
+  });
 });
 
 
