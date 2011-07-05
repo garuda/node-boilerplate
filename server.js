@@ -10,21 +10,31 @@ var connect = require('connect'),
 var server = express.createServer();
 server.configure(function(){
     server.set('views', __dirname + '/views');
+    server.set('view options', {
+        og: {},
+        analyticssiteid: 'XXXXXXX'
+    });
     server.use(connect.bodyParser());
     server.use(connect.static(__dirname + '/static'));
     server.use(server.router);
+});
+
+server.dynamicHelpers({
+    request: function(req){
+        return req;
+    }
 });
 
 //setup the errors
 server.error(function(err, req, res, next){
     if (err instanceof NotFound) {
         res.render('404.ejs', { locals: { 
-            header: '#Header#',
+           header: '#Header#',
            footer: '#Footer#',
            title : '404 - Not Found',
            description: '',
            author: '',
-           analyticssiteid: 'XXXXXXX' 
+
         }, status: 404 });
     } else {
         res.render('500.ejs', { locals: { 
@@ -33,7 +43,6 @@ server.error(function(err, req, res, next){
            title : 'The Server Encountered an Error',
            description: '',
            author: '',
-           analyticssiteid: 'XXXXXXX',
            error: err 
         }, status: 500 });
     }
@@ -62,8 +71,7 @@ server.get('/', function(req, res){
         footer: '#Footer#',
         title : 'Page Title',
         description: 'Page Description',
-        author: 'Your Name',
-        analyticssiteid: 'XXXXXXX' 
+        author: 'Your Name'
     }
   });
 });
