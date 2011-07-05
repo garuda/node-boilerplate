@@ -1,7 +1,11 @@
 #!/bin/sh
 
 echo "Updating git submodules"
-git submodule update --init
+cd lib
+git clone http://github.com/eroh92/html5-boilerplate.git
+cd ..
+# submodule not working right, will figure out when I have time
+#git submodule update --init
 
 echo "Creating static folders"
 mkdir ./static/img
