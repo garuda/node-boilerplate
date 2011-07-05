@@ -20,6 +20,7 @@ cp ./lib/html5-boilerplate/css/style.css ./static/css/style.css
 cp ./lib/html5-boilerplate/robots.txt ./static/robots.txt
 cp ./lib/html5-boilerplate/humans.txt ./static/humans.txt
 cp ./lib/html5-boilerplate/crossdomain.xml ./static/crossdomain.xml
+cp ./lib/html5-boilerplate/favicon.ico ./static/favicon.ico
 cp ./lib/html5-boilerplate/js/libs/* ./static/js/libs
 
 
