@@ -15,11 +15,16 @@
   <meta name="description" content="<%= description %>">
   <meta name="author" content="<%= author %>">
   <% if(og.type && og.url && og.image) { %>
-  <meta property="og:title" content="<%= title %>">
-  <meta property="og:type" content="<%= type %>">
-  <meta property="og:url" content="<%= url %>">
-  <meta property="og:image" content="<%= image %>">
-  <meta property="og:description" content="<%= description %>">
+    <% if(!og.title) { %>
+      <meta property="og:title" content="<%= title %>">
+    <% } %>
+    <% for(var property in og) { %>
+      <meta property="og:<%= property %>" content="<%= og[property] %>">
+    <% } %>
+    <% if(!og.description) { %>
+      <meta property="og:description" content="<%= description %>">
+    <% } %>
+    <meta property="fb:admins" content="<%= fb.admins %>">
   <% } %>
   
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
@@ -44,7 +49,7 @@
 <body>
 
   <div id="container">
-    <header><%= og.type %>
+    <header>
         <%= header %>
     </header>
     

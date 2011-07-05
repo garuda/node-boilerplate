@@ -12,6 +12,7 @@ server.configure(function(){
     server.set('views', __dirname + '/views');
     server.set('view options', {
         og: {},
+        fb: {admins: ''},
         analyticssiteid: 'XXXXXXX'
     });
     server.use(connect.bodyParser());
@@ -33,8 +34,7 @@ server.error(function(err, req, res, next){
            footer: '#Footer#',
            title : '404 - Not Found',
            description: '',
-           author: '',
-
+           author: ''
         }, status: 404 });
     } else {
         res.render('500.ejs', { locals: { 
