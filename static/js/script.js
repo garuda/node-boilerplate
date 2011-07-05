@@ -3,19 +3,15 @@
 */
 
 $(document).ready(function() { 
-   var chat = io.connect('http://localhost');
-
-   chat.on('connect', function () {
-     chat.emit('hi!');
+   var socket = io.connect();
+   socket.on('chat', function (msg) {
+     $('#reciever').append('<li>' + msg + '</li>');  
    });
     
    $('#sender').bind('click', function() {
-     chat.send("Message Sent on " + new Date());     
+     socket.emit("chat", "Message Sent on " + new Date());     
    });
-   
-   chat.on('message', function(data){
-     $('#reciever').append('<li>' + data + '</li>');  
-   });
+
       
  });
 
