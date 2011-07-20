@@ -2,3 +2,9 @@
 	path = lib/html5-boilerplate
 	url = http://github.com/eroh92/html5-boilerplate.git
 
+[submodule "lib/socket.io"]
+	path = lib/socket.io
+	url = http://github.com/LearnBoost/socket.io.git
+[submodule "lib/express"]
+	path = lib/express
+	url = http://github.com/visionmedia/express.git
